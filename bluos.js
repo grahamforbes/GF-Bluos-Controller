@@ -45,6 +45,7 @@ const cover = document.getElementById('cover');
 const volumeDisplay = document.getElementById('volume')
 const volumeContainer = document.getElementById('volume-container');
 const emptyPlaylistText = 'No Tracks'
+var allSongs = "";
 var playListArrayCurrent = 0;
 var playlistCount = 0;
 var currentTrackLength = 0;
@@ -335,7 +336,9 @@ async function getAllPlaylists() {
                 let loadLink = bigList[i].getAttribute('playURL');
                 let loadName = bigList[i].getAttribute('text');
                 let loadImage = bigList[i].getAttribute('image');
-                output += `<button  onclick="loadPlaylist('${loadLink}')">${loadName}</button>`
+                if (loadName != 'All Songs') {
+                    output += `<button  onclick="loadPlaylist('${loadLink}')">${loadName}</button>`;
+                } else { allSongs = loadLink; }
             }
             document.getElementById('playlists').innerHTML = output;
         });
@@ -532,28 +535,3 @@ progressContainer.addEventListener('click', setProgress);
 volumeContainer.addEventListener('click', setVolume);
 
 //******** END ********
-
-async function doStuff() {
-    console.log('Doing Stuff')
-    await fetch(bluosURL + 'Browse?key=LocalMusic:bySection/%2FArtists%3Fservice%3DLocalMusic')
-
-    .then((res) => res.text())
-        .then((data) => {
-            console.log('reponded')
-            let parser = new DOMParser(),
-                xmlDocx = parser.parseFromString(data, 'text/xml')
-            bigList = xmlDocx.getElementsByTagName('item')
-            len = bigList.length
-            for (i = 0; i < len; i++) { console.log(bigList[i].getAttribute('playURL')) }
-            console.log(len)
-            console.log(bigList)
-            console.log(xmlDocx)
-        });
-
-}
-
-
-
-// }<item text="Songs" browseKey="LocalMusic:bySection/%2FSongs%3Fservice%3DLocalMusic" type="link"/>
-
-// fetch(bluosURL + 'Browse?key=%2FSongs%3Fservice%3DLocalMusic')
