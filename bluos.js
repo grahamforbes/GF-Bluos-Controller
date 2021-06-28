@@ -25,7 +25,7 @@ function setup() {
 function setupCancel() {
     document.querySelector('.setup').style.display = "none";
     document.querySelector('.jukebox').style.display = "flex";
-    document.querySelector('.parameters').style.display = "flex";
+    document.querySelector('.parameters').style.display = "inline-block";
 }
 
 //******** Begin main script ******** 
