@@ -30,6 +30,7 @@ function setupCancel() {
 
 //******** Begin main script ******** 
 //Set up rest of items for srcipt
+const wholePage = document.querySelector('html');
 const musicContainer = document.getElementById('music-container');
 const playBtn = document.getElementById('play');
 const prevBtn = document.getElementById('prev');
@@ -509,6 +510,9 @@ function reload() {
     getVolume()
 }
 
+function toggleDarkmode() {
+    wholePage.classList.toggle('darkmode')
+}
 //******** Event listeners ******** 
 //Play/Pause button pressed
 playBtn.addEventListener('click', () => {

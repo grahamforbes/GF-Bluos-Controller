@@ -5,6 +5,7 @@
     /* Custom colour properties include at top of CSS */
     
      :root {
+        --page-background: linear-gradient( 0deg, rgba(247, 247, 247, 1) 23.8%, grey 92%) no-repeat center center fixed;
         --jukebox-background: transparent;
         --playlist-border: grey;
         --playlist-breakLines: rgba(137, 137, 221, 0.568);
@@ -29,10 +30,19 @@
     /* This section for the demo only but indicates how container needs to be styled */
     
     html {
-        background: linear-gradient( 0deg, rgba(247, 247, 247, 1) 23.8%, grey 92%) no-repeat center center fixed;
+        background: var(--page-background);
         -webkit-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
+    }
+    
+    .darkmode {
+        filter: invert(100%);
+        background: rgb(2, 2, 26);
+    }
+    
+    .darkmode img {
+        filter: invert(100%);
     }
     
     body {
@@ -80,7 +90,7 @@
         padding: 2em 3em 1em 2em;
         background-color: var(--player-container);
         border-radius: 10px;
-        box-shadow: 0 20px 20px 0 var(--player-shadow);
+        box-shadow: 5px 10px 10px 0 var(--player-shadow);
         flex-direction: column;
         flex-wrap: wrap;
     }
@@ -98,7 +108,7 @@
         top: -2.5em;
         left: -2.5em;
         padding: .5em 1em;
-        box-shadow: 0 20px 20px 0 var(--player-shadow);
+        box-shadow: 5px 10px 10px 0 var(--player-shadow);
         border-radius: .5em;
         font-family: 'Hi Melody', cursive;
         font-size: 1.5em;
@@ -152,7 +162,7 @@
         position: sticky;
         align-self: flex-start;
         z-index: 10;
-        box-shadow: 0 20px 20px 0 var(--player-shadow);
+        box-shadow: 5px 10px 10px 0 var(--player-shadow);
         padding-left: .5em;
         padding-right: .5em;
         padding-bottom: 2em;
@@ -185,7 +195,7 @@
         border-radius: .5em;
         display: flex;
         max-width: 100%;
-        box-shadow: 0 20px 20px 0 var(--player-shadow);
+        box-shadow: 5px 10px 10px 0 var(--player-shadow);
     }
     
     .preset-list {
@@ -228,7 +238,7 @@
         text-align: center;
         align-self: flex-start;
         min-width: 380px;
-        box-shadow: 0 20px 20px 0 var(--player-shadow);
+        box-shadow: 5px 10px 10px 0 var(--player-shadow);
         padding-bottom: 1em;
         margin-bottom: .5em;
     }
@@ -342,7 +352,7 @@
     .music-container {
         background-color: var(--player-container);
         border-radius: 15px;
-        box-shadow: 0 20px 20px 0 var(--player-shadow);
+        box-shadow: 5px 10px 10px 0 var(--player-shadow);
         display: flex;
         padding: 20px 5px;
         position: relative;
