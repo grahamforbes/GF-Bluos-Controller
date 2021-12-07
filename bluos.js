@@ -6,8 +6,8 @@ if ((localStorage.getItem("yourBluosIP") == "") || (localStorage.getItem("yourBl
     initialise()
 } else {
     bluosIP = localStorage.getItem("yourBluosIP");
-    var bluosURL = 'http://192.168' + bluosIP + ':11000/'
-    var serviceURL = 'http://192.168' + bluosIP + ':11000'
+    var bluosURL = 'http://192.168.' + bluosIP + ':11000/'
+    var serviceURL = 'http://192.168.' + bluosIP + ':11000'
 }
 
 function initialise() {
@@ -18,7 +18,7 @@ function initialise() {
 
 function setup() {
     setupCancel()
-    localStorage.setItem('yourBluosIP', document.getElementById('getIP').value);
+    localStorage.setItem('yourBluosIP', document.getElementById('getIP').value + '.' + document.getElementById('getIP2').value);
     window.location.reload();
 }
 
@@ -511,7 +511,8 @@ function reload() {
 }
 
 function toggleDarkmode() {
-    wholePage.classList.toggle('darkmode')
+    document.body.classList.toggle('darkmode')
+        // wholePage.classList.toggle('darkmode')
 }
 //******** Event listeners ******** 
 //Play/Pause button pressed

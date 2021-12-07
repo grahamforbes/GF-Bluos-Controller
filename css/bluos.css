@@ -15,6 +15,7 @@
         --playlist-heading: rgb(0, 0, 83);
         --playlist-playing-now-border: rgb(141, 76, 76);
         --playlists-button: rgb(190, 250, 227);
+        --playlists-button-hover: rgb(18, 3, 61);
         --presets-button: rgb(236, 210, 171);
         --player-container: rgb(255, 255, 255);
         --player-control: rgba(0, 0, 83, 0.5);
@@ -25,33 +26,53 @@
         --volume-background: linear-gradient(90deg, rgba(166, 166, 214, 1) 0%, rgba(11, 138, 5, 0.6026611328125) 50%, rgba(255, 0, 31, 0.41778718323266806) 100%);
         --volume-color: rgba(49, 12, 112, .75);
         --feature-on-background: rgb(31, 134, 0);
-        --feature-on-color: rgb(255, 255, 255)
+        --feature-on-color: rgb(255, 255, 255);
+        --button-text-color: rgb(0, 0, 0);
+        --button-text-color-hover: rgb(255, 255, 255);
     }
     /* This section for the demo only but indicates how container needs to be styled */
     
     html {
-        background: var(--page-background);
         -webkit-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
     }
     
-    .darkmode {
-        filter: invert(100%);
-        background: rgb(2, 2, 26);
-    }
-    
-    .darkmode img {
-        filter: invert(100%);
-    }
-    
     body {
+        background: var(--page-background);
         height: 100vh;
         display: flex;
         flex-direction: column;
         /* justify-content: center; */
         font-family: 'Lato', sans-serif;
         margin: 0;
+    }
+    
+    .darkmode {
+        --page-background: linear-gradient( 0deg, rgb(6, 1, 34) 23.8%, black 92%) no-repeat center center fixed;
+        /* --jukebox-background: transparent; */
+        --playlist-border: rgb(209, 209, 209);
+        --playlist-breakLines: rgba(231, 206, 122, 0.568);
+        --playlist-song: rgb(212, 240, 146);
+        --playlist-song-playing: rgb(217, 205, 240);
+        --playlist-description: rgb(235, 213, 173);
+        --playlist-heading: rgb(235, 213, 173);
+        --playlist-playing-now-border: rgb(128, 179, 221);
+        --playlists-button: rgb(44, 5, 5);
+        --playlists-button-hover: rgb(134, 255, 229);
+        --presets-button: rgb(23, 43, 109);
+        --player-container: rgb(22, 3, 22);
+        --player-control: rgba(179, 163, 134, 0.5);
+        --player-shadow: rgba(125, 106, 148, 0.281);
+        --player-info-background: rgba(18, 3, 43, 0.5);
+        --progress-container: rgba(170, 48, 58, 0.295);
+        --progress-color: rgb(228, 182, 122);
+        --volume-background: linear-gradient(90deg, rgba(166, 166, 214, 1) 0%, rgba(109, 228, 102, 0.603) 50%, rgba(223, 90, 106, 0.418) 100%);
+        --volume-color: rgba(225, 231, 141, 0.75);
+        --feature-on-background: rgb(184, 231, 169);
+        --feature-on-color: rgb(18, 1, 58);
+        --button-text-color-hover: rgb(0, 0, 0);
+        --button-text-color: rgb(255, 255, 255);
     }
     
     .the-title {
@@ -67,10 +88,16 @@
         text-align: right;
     }
     
+    .gears {
+        display: flex;
+        justify-content: space-evenly;
+        align-content: center;
+        margin-top: 1em;
+    }
+    
     .gear {
         background-color: transparent;
         border-color: transparent;
-        margin: 1em 1em 0em auto;
         cursor: pointer;
     }
     
@@ -120,6 +147,9 @@
         .playlist h3 {
             left: 0em;
         }
+        .the-title {
+            font-size: 1.5rem;
+        }
     }
     
     h5 {
@@ -127,14 +157,24 @@
     }
     
     .setup label {
-        padding-right: 1em;
+        padding-right: 0;
         font-size: 1em;
     }
     
     .setup input {
         font-size: 1em;
-        padding-left: 1em;
-        margin-right: 3em;
+        padding-left: .5em;
+        margin-right: 0;
+        width: 3em;
+    }
+    
+     ::placeholder {
+        color: var(--playlist-breakLines);
+        font-size: 12px;
+    }
+    
+    .pale {
+        color: var(--playlist-breakLines);
     }
     
     .about-text {
@@ -211,19 +251,21 @@
         display: block;
         padding: .25em 1em;
         background-color: var(--presets-button);
+        color: var(--button-text-color);
         border-radius: .5em;
     }
     
     #playlists button {
         background-color: var(--playlists-button);
+        color: var(--button-text-color);
     }
     
     .preset-list button:hover,
     #shuffle:hover,
     #repeat:hover,
     #playlists button:hover {
-        background-color: var(--playlist-breakLines);
-        color: var(--player-container);
+        background-color: var(--playlists-button-hover);
+        color: var(--button-text-color-hover);
         cursor: pointer;
     }
     /* Playlist Section */

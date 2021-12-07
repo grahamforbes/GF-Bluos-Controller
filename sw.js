@@ -1,4 +1,4 @@
-const staticCacheName = 'site-static-v1.10';
+const staticCacheName = 'site-static-v1.12';
 const assets = [
     '/',
     '/index.html',
@@ -10,6 +10,8 @@ const assets = [
     '/images/delete.png',
     '/images/dustbin.png',
     '/images/volume.png',
+    '/images/refresh.png',
+    '/images/yinyang.png',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css',
     'https://fonts.googleapis.com/css2?family=Niconne&display=swap',
     'https://fonts.googleapis.com/css?family=Lato&display=swap'

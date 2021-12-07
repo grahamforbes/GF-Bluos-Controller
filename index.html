@@ -30,10 +30,12 @@
     <section class="setup">
         <h3>Player Setup</h3>
         <div>
-            <label for="getIP">Enter the last 2 parts <br>of your Bluos Device Ip Address<br> including the full stops  </label>
-            <input id="getIP" name="getIP" type="text" maxlength="8" placeholder="eg .1.123" required>
+            <label for="getIP">Enter the last 2 parts <br>of your Bluos Device Ip Address<br><br><span class="pale"> 192.168.</span></label>
+            <input id="getIP" name="getIP" type="text" maxlength="3" placeholder="e.g. 1" required>
+            <label for="getIP2" class="pale">.</label>
+            <input id="getIP2" name="getIP2" type="text" maxlength="3" placeholder="e.g. 123" required>
         </div>
-        <div>
+        <div class="gears">
             <button class="gear" onclick="setup()"><img src="./images/check.png" alt="set" title="Update Settings"></button>
             <button class="gear" onclick="setupCancel()"> <img src="./images/delete.png" alt="cancel" title="Cancel Setup">  </button>
         </div>
